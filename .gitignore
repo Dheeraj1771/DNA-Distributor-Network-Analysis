@@ -22,17 +22,6 @@ env/
 # Streamlit
 .streamlit/secrets.toml
 
-# Spatial Data & ML Datasets (CRITICAL: Do not push large data to GitHub)
-*.csv
-*.xlsx
-*.geojson
-*.shp
-*.shx
-*.dbf
-*.prj
-*.cpg
-*.kml
-
 
 # Machine Learning Models
 *.pkl
