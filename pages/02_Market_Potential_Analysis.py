@@ -4,7 +4,6 @@ import geopandas as gpd
 import folium
 from streamlit_folium import st_folium
 import os
-import numpy as np
 from folium.utilities import JsCode 
 
 # --- MUST BE THE ABSOLUTE FIRST STREAMLIT COMMAND TO AVOID CONTAINMENT BUGS ---

@@ -7,7 +7,6 @@ import os
 import numpy as np
 from sklearn.cluster import DBSCAN
 import matplotlib.pyplot as plt
-# import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 
 st.set_page_config( page_title='White-Space Analysis',layout='wide')
