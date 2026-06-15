@@ -32,9 +32,7 @@ env/
 *.prj
 *.cpg
 *.kml
-data/
-raw_data/
-processed_data/
+
 
 # Machine Learning Models
 *.pkl
