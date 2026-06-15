@@ -20,6 +20,35 @@ st.markdown("""
         color: #1f77b4;
         font-weight: bold;
     }
+    
+    /* MOBILE RESPONSIVE & ANTI-CLIPPING KPI CARD OVERRIDES */
+    .dna-metric-card {
+        background-color: #ffffff;
+        padding: 14px;
+        border-radius: 6px;
+        border: 1px solid #e6e9ef;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        margin-bottom: 10px;
+    }
+    .dna-metric-label {
+        font-size: 12.5px;
+        color: #555555;
+        font-weight: 500;
+        line-height: 1.3;
+        margin-bottom: 6px;
+        white-space: normal; /* Forces text to wrap instead of cutting off */
+        word-wrap: break-word;
+    }
+    .dna-metric-value {
+        font-size: 19px;
+        color: #111111;
+        font-weight: 700;
+        white-space: normal; /* Prevents values like (5x5 km) from getting clipped */
+        word-wrap: break-word;
+    }
+    @media (max-width: 768px) {
+        .dna-metric-value { font-size: 16px; }
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -65,13 +94,33 @@ try:
     
     kpi1, kpi2, kpi3, kpi4 = st.columns(4)
     with kpi1:
-        st.metric("Total Regional Mesh Blocks", "12,847 Cells (5x5 km)")
+        st.markdown("""
+            <div class="dna-metric-card">
+                <div class="dna-metric-label">Total Regional Mesh Blocks</div>
+                <div class="dna-metric-value">12,847 Cells (5x5 km)</div>
+            </div>
+        """, unsafe_allow_html=True)
     with kpi2:
-        st.metric("Total Active Customers", f"{len(customer_df):,}")
+        st.markdown(f"""
+            <div class="dna-metric-card">
+                <div class="dna-metric-label">Total Active Customers</div>
+                <div class="dna-metric-value">{len(customer_df):,}</div>
+            </div>
+        """, unsafe_allow_html=True)
     with kpi3:
-        st.metric("Total Historical Revenue Baseline", f"₹{total_rev:.2f} Cr")
+        st.markdown(f"""
+            <div class="dna-metric-card">
+                <div class="dna-metric-label">Total Historical Revenue Baseline</div>
+                <div class="dna-metric-value">₹{total_rev:.2f} Cr</div>
+            </div>
+        """, unsafe_allow_html=True)
     with kpi4:
-        st.metric("Total Internal Touchpoints (i.e. MW, AW, RO, Dealer)", len(internal_df))
+        st.markdown(f"""
+            <div class="dna-metric-card">
+                <div class="dna-metric-label">Total Internal Touchpoints</div>
+                <div class="dna-metric-value">{len(internal_df)} Nodes <span style="font-size:11px; color:#666; font-weight:normal;">(MW, AW, RO, Dealer)</span></div>
+            </div>
+        """, unsafe_allow_html=True)
     
 except Exception:
     st.warning("Ensure database CSV items exist within the data directory to view live system summaries.")
