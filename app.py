@@ -40,8 +40,8 @@ col1, col2 = st.columns([1, 3])
 
 with col1:
     st.markdown("### 📊 Network Overview")
-    st.metric("Internal Touchpoints", len(internal_df))
-    st.metric("Customer Locations", len(customer_df))
+    st.metric("Internal Touchpoints (i.e. MW, AW, RO, Dealer)", len(internal_df))
+    st.metric("Total Customer Locations", len(customer_df))
     
     total_rev = history_df["Revenue_INR"].sum() / 10000000 
     st.metric("Total Historical Revenue", f"₹{total_rev:.2f} Cr")
